@@ -1,0 +1,16 @@
+{
+  "name": "test-css-in-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel ./index.html --open"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "css-tree": "^1.1.3"
+  }
+}
