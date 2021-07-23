@@ -1,3 +1,3 @@
-export {html} from './html'
-export {css} from './css'
-export {createGlobalStyles} from './createGlobalStyles'
+export { html } from "./html";
+export { css } from "./css";
+export { attachStyles } from "./attachStyles";

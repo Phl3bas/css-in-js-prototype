@@ -1,48 +1,50 @@
-import {html, css, createGlobalStyles} from './lib'
+import { html, css } from "./lib";
 
-
-const app = document.querySelector<HTMLDivElement>('#app');
+const app = document.querySelector<HTMLDivElement>("#app");
 
 interface Props {
-    bg: string
-    color: string,
-    family: string
+  bg: string;
+  color: string;
+  family: string;
 }
 
 const useStyles = css<Props>`
-    .myClass {
-        background: ${(props)=>  props.bg};
-        font-family: ${(props)=> props.family};
-        padding: 10px;
-        border-radius: 10px;
-    }
+  .myClass {
+    background: ${(props) => props.bg};
+    font-family: ${(props) => props.family};
+    padding: 10px;
+    border-radius: 10px;
+  }
 
-    h1 {
-        color: ${(props)=>  props.color};
-    }
+  .myClass p {
+    color: blue;
+  }
 
-    p {
-        color: ${(props)=>  props.color};
-    }
-`
+  .heading {
+    color: ${(props) => props.color};
+  }
 
-const {classes} = useStyles({bg: "teal",color: 'white', family: 'arial'})
+  .text {
+    color: ${(props) => props.color};
+  }
+`;
+
+const { classes } = useStyles({ bg: "teal", color: "white", family: "arial" });
 
 const otherUseStyles = css`
-    .myClass {
-        background: red;
-    }
-`
+  .myClass {
+    color: white;
+  }
+`;
 
-const { classes: otherClasses} = otherUseStyles()
+const { classes: otherClasses } = otherUseStyles();
 
+const template = html`
+  <div class=${classes.myClass}>
+    <h1 class=${otherClasses.myClass}>Hi there</h1>
+    <p>lorum ipsum</p>
+    <button>click</button>
+  </div>
+`;
 
-app.innerHTML = html`
-    <div class=${classes.myClass}>
-        <h1 class=${otherClasses.myClass}>Hi there</h1>
-        <p>lorum ipsum</p>
-    </div>
-
-
-
-`
+app.appendChild(template);
